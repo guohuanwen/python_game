@@ -23,10 +23,10 @@ def day2(num):
 
 class People:
     def __init__(self):
-        print('SmallSkyFather init')
+        print('People init')
 
     def sleep(self):
-        print('SmallSkyFather sleep')
+        print('People sleep')
 
 class SmallSky(People):
     def __init__(self):
@@ -53,7 +53,7 @@ def day3():
 
 #移位运算，移位运算计算速度优于除法，16／4 优化-————> 16>>2
 def day4():
-    print(201>>2)#右移（低位丢弃） 200的二进制数11001001 右移后 110010 ，110010转十进制50
+    print(201>>2)#右移（低位丢弃） 201的二进制数11001001 右移后 110010 ，110010转十进制50
     print(2<<2)#左移（高位丢弃，低位补0） 2的二进制数10， 10左移后1000， 1000转十进制8
 
 day4()
