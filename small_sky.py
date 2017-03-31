@@ -36,12 +36,30 @@ class SmallSky(People):
         print('SmallSky need turn off the lights ')
         People.sleep(self)
 
+class Bigwen(People):
+
+    def __init__(self):
+        People.__init__(self)
+
+    def eat(self):
+        print('Bigwen eats food')
+
+class OtherPeople(SmallSky, Bigwen):
+
+    def __init__(self):
+        SmallSky.__init__(self)
+
+    def drink(self):
+        print('OtherPeople drinks water')
+
 #面向对象1
 #继承父类方法，代码逻辑按层次封装，简化问题
 #抽象出事物共同属性，行为，子类共用这部分代码，子类扩展父类属性，行为
 def day3():
-    small_sky = SmallSky()
-    small_sky.sleep()
+    other = OtherPeople()
+    other.sleep()
+    other.eat()
+    other.drink()
 
 # day3()
 
