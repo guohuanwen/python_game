@@ -74,4 +74,10 @@ def day4():
     print(201>>2)#右移（低位丢弃） 201的二进制数11001001 右移后 110010 ，110010转十进制50
     print(2<<2)#左移（高位丢弃，低位补0） 2的二进制数10， 10左移后1000， 1000转十进制8
 
-day4()
+# day4()
+
+def day5():
+    print('1，熟悉window下环境变量的配置')
+    print('2，pip使用')
+    print('3，cmd的使用')
+    print('windows Python和pip安装  http://www.cnblogs.com/yuanzm/p/4089856.html')
