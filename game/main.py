@@ -2,6 +2,7 @@
 
 from map import Map
 from keyboard import *
+from pipe import Pipe
 
 
 class GameMain(cocos.layer.Layer):
@@ -12,9 +13,9 @@ class GameMain(cocos.layer.Layer):
         self.keys_pressed = set()
         self.bird = Bird()
         self.map = Map()
-        self.map.x = - MAP_WIDTH / 2 + SCREEN_WIDTH / 2
+        self.map.x = 0
         self.map.y = - MAP_HEIGHT / 2 + SCREEN_HEIGHT / 2
-        self.bird.position = MAP_WIDTH / 2, MAP_HEIGHT / 2
+        self.bird.position = SCREEN_WIDTH / 2, MAP_HEIGHT / 2
         self.add(self.map, z=0)
         # self.add(self.bird, z=1)
         self.map.add(self.bird, z=0)

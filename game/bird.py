@@ -7,7 +7,7 @@ import math
 class Bird(cocos.sprite.Sprite):
 
     #重力加速度
-    gravity = -1.5
+    gravity = -2
     #起跳速度
     jump_velocity = 15
 
