@@ -71,6 +71,12 @@ class Bird(cocos.sprite.Sprite):
                 print('die2')
                 return True
 
+        if self.y <= pipe2.y:
+            return True
+
+        if self.y >= pipe1.y + pipe1.height:
+            return True
+
         return False
 
     def reset(self):

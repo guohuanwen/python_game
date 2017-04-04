@@ -2,15 +2,21 @@
 
 from map import Map
 from keyboard import *
+import pyglet
 
 class GameMain(cocos.layer.Layer):
+
     is_event_handler = True
     score = 0
+    # bg = pyglet.resource.media('bg.mp3')
+    jump = pyglet.resource.media('jump.wav')
+
+
 
     def __init__(self):
         super(GameMain, self).__init__()
         self.textLable = cocos.text.Label(u'分数：0',
-                                          font_name='Times New Roman',
+                                          font_name=FONTS,
                                           font_size=16,
                                           anchor_x='center', anchor_y='center')
         self.textLable.position = 100, SCREEN_HEIGHT - + 100
@@ -25,10 +31,15 @@ class GameMain(cocos.layer.Layer):
         self.map.add(self.bird, z=0)
         self.add(self.textLable, z=0)
         self.is_run = False
+        self.bg_player = pyglet.media.Player()
+        self.bg_player.queue(pyglet.resource.media('bg.mp3'))
 
     def on_key_press(self, key, modifiers):
         self.keys_pressed.add(key)
+        # if self.is_run:
+        #     self.sound_jump.play()
         if not self.is_run:
+            self.bg_player.play()
             self.is_run = True
             self.schedule(self.refresh)
         # else:
@@ -52,10 +63,20 @@ class GameMain(cocos.layer.Layer):
             self.textLable.element.text = u'分数：%d' % self.score
 
     def stop(self):
+        self.bg_player.delete()
         self.unschedule(self.refresh)
         self.is_run = False
-        # self.map.reset()
-        # self.bird.reset()
+        self.reset()
+
+    def reset(self):
+        self.map.reset()
+        self.bird.reset()
+        self.map.x = 0
+        self.map.y = - MAP_HEIGHT / 2 + SCREEN_HEIGHT / 2
+        self.bird.position = SCREEN_WIDTH / 2, MAP_HEIGHT / 2
+        self.is_run = False
+        self.bg_player.queue(pyglet.resource.media('bg.mp3'))
+
 
 cocos.director.director.init(width=SCREEN_WIDTH, height=SCREEN_HEIGHT, resizable=True)
 scene = cocos.scene.Scene(GameMain())

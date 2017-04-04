@@ -33,7 +33,12 @@ class Map(cocos.layer.ColorLayer):
         self.add(dot)
 
     def reset(self):
+        self.remove(self.pipe1)
+        self.remove(self.pipe2)
+        self.pipe1 = Pipe(True)
+        self.pipe2 = Pipe(False)
         self.pipe1.position = SCREEN_WIDTH, self.pipe2.height + 150
         self.pipe2.position = SCREEN_WIDTH, 0
-        self.x = 0
-        self.y = 0
+        self.add(self.pipe1, z=0)
+        self.add(self.pipe2, z=0)
+
