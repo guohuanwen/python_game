@@ -131,7 +131,7 @@ class TranslateImg:
 
 def day6():
     print('图形库PIL的简单应用：图片转字符串画')
-    print('1，运行代码。2，用文档打开当前目录下的img.txt')
+    print('1，运行代码。2，用文档打开当前目录下的img.txt（网页打开：https://github.com/guohuanwen/python_game/blob/master/img.txt。原图打开：https://github.com/guohuanwen/python_game/blob/master/img.jpeg）')
     translateImg = TranslateImg()
     translateImg.translate()
 
