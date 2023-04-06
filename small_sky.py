@@ -1,7 +1,9 @@
-# coding=utf-8
+# coding:utf-8
+
 import re
 from PIL import Image
 import os, sys
+import matplotlib
 
 
 # 循环语句，if语句，正则表达式
@@ -135,4 +137,7 @@ def day6():
     translateImg = TranslateImg()
     translateImg.translate()
 
-day6()
+def day7():
+    text = open("over.txt","r")
+    for i in text.readlines():
+        print(str(i))
